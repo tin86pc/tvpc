@@ -42,7 +42,7 @@
     <input type="number" id="khoitich" min="1">
 
     <br>
-    <h3 id="kq" class="kq">...</h3>
+    <h3 id="kq" class="kq">. . .</h3>
 
     <script>
         const loai = document.getElementById("loai")
@@ -50,6 +50,10 @@
         const khoitich = document.getElementById("khoitich")
         const kq = document.getElementById("kq")
 
+
+        loai.addEventListener("change", () => {
+            tinhtoan()
+        })
         sotang.addEventListener("change", () => {
             tinhtoan()
         })
@@ -57,26 +61,39 @@
         khoitich.addEventListener("change", () => {
             tinhtoan();
         })
+        khoitich.addEventListener("keyup", () => {
+            tinhtoan();
+        })
 
         function tinhtoan() {
             let ketqua = false;
 
-
             var v = loai.options[loai.value].value;
-            if (v == 1 && sotang.value >= 7) {
-                ketqua = true;
+            if (v == 1) {
+                if (sotang.value >= 7) {
+                    ketqua = true;
+                }
+                if (khoitich.value >= 5000) {
+                    ketqua = true;
+                }
             }
 
-            if(khoitich.value>=5000){
-                ketqua = true;
-            }
 
-            if (ketqua == true) {
-                kq.textContent = "Công trình thuộc dạng phải thẩm duyệt nghiệm thu"
-            } else {
-                kq.textContent = "..."
-            }
+
+
+            setTimeout(function () {
+                if (ketqua == true) {
+
+                    kq.textContent = "Công trình thuộc dạng phải thẩm duyệt nghiệm thu"
+                } else {
+                    kq.textContent = ". . ."
+                }
+            }, 1000)
+
+
         }
+
+
 
     </script>
 
