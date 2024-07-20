@@ -54,7 +54,11 @@
         loai.addEventListener("change", () => {
             tinhtoan()
         })
+
         sotang.addEventListener("change", () => {
+            tinhtoan()
+        })
+        sotang.addEventListener("keyup", () => {
             tinhtoan()
         })
 
@@ -78,18 +82,12 @@
                 }
             }
 
+            if (ketqua == true) {
 
-
-
-            setTimeout(function () {
-                if (ketqua == true) {
-
-                    kq.textContent = "Công trình thuộc dạng phải thẩm duyệt nghiệm thu"
-                } else {
-                    kq.textContent = ". . ."
-                }
-            }, 1000)
-
+                kq.textContent = "Công trình thuộc dạng phải thẩm duyệt nghiệm thu"
+            } else {
+                kq.textContent = ". . ."
+            }
 
         }
 
