@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+    <title>tvpc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Xét thuộc diện thẩm duyệt thiết kế về PCCC</h2>
+
+    <select name="cars" id="loai">
+        <option value="0">Chọn loại công trình ...</option>
+        <option value="1">Nhà làm việc của cơ quan nhà nước</option>
+        <option value="1">Nhà làm việc của doanh nghiệp</option>
+        <option value="1">Nhà làm việc tổ chức chính trị, xã hội</option>
+        <option value="1">Nhà chung cư</option>
+        <option value="1">Nhà tập thể</option>
+        <option value="1">Nhà ở ký túc xá</option>
+        <option value="1">Nhà hỗn hợp</option>
+        <option value="1">Khách sạn</option>
+        <option value="1">Nhà khách</option>
+        <option value="1">Nhà nghỉ</option>
+    </select>
+    <br>
+    <div class="tooltip">Nhập số tầng
+        <span class="tooltiptext">
+            Số tầng của tòa nhà = Toàn bộ các tầng trên mặt đất (gồm cả tầng kỹ thuật, tầng áp mái, mái tum) + tầng hầm
+        </span>
+    </div>
+    <input type="number" id="sotang" min="1" max="200">
+
+    <br>
+    <div class="tooltip">Nhập Khối tích (m3)
+        <span class="tooltiptext">
+            Chiều cao
+        </span>
+    </div>
+    <input type="number" id="khoitich" min="1">
+
+    <br>
+    <h3 id="kq" class="kq">...</h3>
+
+    <script>
+        const loai = document.getElementById("loai")
+        const sotang = document.getElementById("sotang")
+        const khoitich = document.getElementById("khoitich")
+        const kq = document.getElementById("kq")
+
+        sotang.addEventListener("change", () => {
+            tinhtoan()
+        })
+
+        khoitich.addEventListener("change", () => {
+            tinhtoan();
+        })
+
+        function tinhtoan() {
+            let ketqua = false;
+
+
+            var v = loai.options[loai.value].value;
+            if (v == 1 && sotang.value >= 7) {
+                ketqua = true;
+            }
+
+            if(khoitich.value>=5000){
+                ketqua = true;
+            }
+
+            if (ketqua == true) {
+                kq.textContent = "Công trình thuộc dạng phải thẩm duyệt nghiệm thu"
+            } else {
+                kq.textContent = "..."
+            }
+        }
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
