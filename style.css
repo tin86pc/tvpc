@@ -11,7 +11,8 @@
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 10px 10px;
+    font-size: small;
 
     /* Position the tooltip */
     position: absolute;
@@ -24,4 +25,8 @@
 
 .kq{
     color: #ff0000;
+}
+
+.an{
+    visibility: hidden;
 }
