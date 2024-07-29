@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <h4>Đối với cơ sở kinh doanh dịch vụ, ăn uống</h4>
+
+    <div class="tooltip">Nhập diện tích (m2)
+        <span class="tooltiptext">
+
+        </span>
+    </div>
+    <input type="number" id="dien_tich" min="1" max="200">
+    <br>
+    <br>
+
+    <div class="tooltip">Nhập Khối tích (m3)
+        <span class="tooltiptext">
+            Khối tích của công trình
+        </span>
+    </div>
+    <input type="number" id="khoi_tich" min="1">
+
+    <br>
+    <br>
+
+    <textarea id="ket_qua" class="kq" rows="5
+    " cols="70">
+    </textarea>
+
+
+
+    <script>
+        const dien_tich = document.getElementById("dien_tich")
+        const khoi_tich = document.getElementById("khoi_tich")
+        const ket_qua = document.getElementById("ket_qua")
+
+        tinhtoan()
+
+        dien_tich.addEventListener("change", () => {
+            tinhtoan()
+        })
+        dien_tich.addEventListener("keyup", () => {
+            tinhtoan()
+        })
+
+        khoi_tich.addEventListener("change", () => {
+            tinhtoan();
+        })
+        khoi_tich.addEventListener("keyup", () => {
+            tinhtoan();
+        })
+
+        function tinhtoan() {
+            ket_qua.textContent = ""
+
+            if (dien_tich.value >= 100 || khoi_tich.value >= 500) {
+                ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
+            }
+
+            if (dien_tich.value >= 500 || khoi_tich.value >= 5000) {
+                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
+            }
+
+            if (dien_tich.value >= 300 || khoi_tich.value >= 1000) {
+                ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+            }
+
+            if (dien_tich.value < 300 || khoi_tich.value < 1000) {
+                ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+            }
+
+            if (khoi_tich.value >= 3000) {
+                ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+            }
+
+        }
+
+        
+    </script>
+
+</body>
+
+</html>

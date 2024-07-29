@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <h4>Đối với chợ</h4>
+
+    <div class="tooltip">Nhập diện tích (m2)
+        <span class="tooltiptext">
+
+        </span>
+    </div>
+    <input type="number" id="dien_tich" min="1" max="200">
+    <br>
+    <br>
+
+    <div class="tooltip">Nhập Khối tích (m3)
+        <span class="tooltiptext">
+            Khối tích của công trình
+        </span>
+    </div>
+    <input type="number" id="khoi_tich" min="1">
+    <br>
+    <br>
+
+    <div class="tooltip">Hạng
+        <select id="hang">
+            <option>Chọn hạng . . .</option>
+            <option>Hạng 1</option>
+            <option>Hạng 2</option>
+            <option>Hạng 3</option>
+        </select>
+    </div>
+
+    <br>
+    <br>
+
+    <textarea id="ket_qua" class="kq" rows="5
+    " cols="70">
+    </textarea>
+
+
+
+    <script>
+        const dien_tich = document.getElementById("dien_tich")
+        const khoi_tich = document.getElementById("khoi_tich")
+        const hang = document.getElementById("hang")
+        const ket_qua = document.getElementById("ket_qua")
+
+        tinhtoan()
+
+        dien_tich.addEventListener("change", () => {
+            tinhtoan()
+        })
+        dien_tich.addEventListener("keyup", () => {
+            tinhtoan()
+        })
+
+        khoi_tich.addEventListener("change", () => {
+            tinhtoan();
+        })
+        khoi_tich.addEventListener("keyup", () => {
+            tinhtoan();
+        })
+
+        hang.addEventListener("change", (e) => {
+            tinhtoan();
+        })
+
+
+        function tinhtoan() {
+            ket_qua.textContent = ""
+
+            ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
+
+            if (dien_tich.value >= 500 || khoi_tich.value >= 5000) {
+                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
+            }
+
+            var text = hang.options[hang.selectedIndex].text;
+            if (text == "Hạng 1"||text == "Hạng 2") {
+                ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+            }
+
+            if (text == "Hạng 3") {
+                ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+            }
+
+
+            if (khoi_tich.value >= 3000) {
+                ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+            }
+
+
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
