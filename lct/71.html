@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <h4>Đối với nhà thi đấu thể thao</h4>
+
+    <div class="tooltip">Sức chứa (chỗ ngồi)
+    </div>
+    <input type="number" id="cho_ngoi" min="1">
+    <br>
+    <br>
+
+    <div class="tooltip">Nhập Khối tích (m3)
+        <span class="tooltiptext">
+            Khối tích của công trình
+        </span>
+    </div>
+    <input type="number" id="khoi_tich" min="1">
+    <br>
+    <br>
+
+    <textarea id="ket_qua" class="kq" rows="5
+    " cols="70">
+    </textarea>
+
+
+
+    <script>
+        const cho_ngoi = document.getElementById("cho_ngoi")
+        const khoi_tich = document.getElementById("khoi_tich")
+        const ket_qua = document.getElementById("ket_qua")
+
+        tinhtoan()
+
+        cho_ngoi.addEventListener("change", () => {
+            tinhtoan()
+        })
+        cho_ngoi.addEventListener("keyup", () => {
+            tinhtoan()
+        })
+
+        khoi_tich.addEventListener("change", () => {
+            tinhtoan();
+        })
+        khoi_tich.addEventListener("keyup", () => {
+            tinhtoan();
+        })
+
+
+        function tinhtoan() {
+            ket_qua.textContent = ""
+            // Phụ lục 1
+            ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
+
+            // Phụ lục 2
+            if (cho_ngoi.value >= 500) {
+                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
+            }
+
+            // Phụ lục 3
+
+            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+
+
+            // Phụ lục 4
+            if (khoi_tich.value < 1500) {
+                ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+            }
+
+            // Phụ lục 5
+            if (cho_ngoi.value >= 5000 || khoi_tich.value >= 5000) {
+                ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

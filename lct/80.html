@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <h4>Đối với hăng ga máy bay</h4>
+
+    <div class="tooltip">Nhập Khối tích (m3)
+        <span class="tooltiptext">
+            Khối tích của công trình
+        </span>
+    </div>
+    <input type="number" id="khoi_tich" min="1">
+    <br>
+    <br>
+
+    <div class="tooltip">Loại
+        <select id="loai">
+            <option>Chọn loại . . .</option>
+            <option>loại I</option>
+            <option>loại II</option>
+        </select>
+    </div>
+
+    <br>
+    <br>
+
+    <textarea id="ket_qua" class="kq" rows="5
+    " cols="70">
+    </textarea>
+
+
+
+    <script>
+        const khoi_tich = document.getElementById("khoi_tich")
+        const hang = document.getElementById("hang")
+        const ket_qua = document.getElementById("ket_qua")
+
+        tinhtoan()
+
+        khoi_tich.addEventListener("change", () => {
+            tinhtoan();
+        })
+        khoi_tich.addEventListener("keyup", () => {
+            tinhtoan();
+        })
+
+        loai.addEventListener("change", (e) => {
+            tinhtoan();
+        })
+
+
+        function tinhtoan() {
+            ket_qua.textContent = ""
+
+            ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
+
+            var text = loai.options[loai.selectedIndex].text;
+
+            if (text == "loại I" || text == "loại II") {
+                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
+            }
+
+
+            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+
+            if (khoi_tich.value >= 5000) {
+                // ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
