@@ -39,6 +39,8 @@
         const khoi_tich = document.getElementById("khoi_tich")
         const ket_qua = document.getElementById("ket_qua")
 
+        tinhtoan()
+        
         so_tang.addEventListener("change", () => {
             tinhtoan()
         })
@@ -59,6 +61,8 @@
 
             ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
 
+
+
             if (so_tang.value >= 7 || khoi_tich.value >= 10000) {
                 ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
             }
@@ -66,7 +70,7 @@
             if (so_tang.value >= 5 || khoi_tich.value >= 5000) {
                 ket_qua.textContent += "- Do cơ quan công an quản lý\n"
             }
-            
+
             if (so_tang.value < 5 && khoi_tich.value < 5000) {
                 ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
             }
