@@ -10,13 +10,14 @@
 </head>
 
 <body>
-    <iframe src="xet_tham_duyet.html" width="800px" height="90px"></iframe>
+    <iframe src="lct/xet_tham_duyet.html" width="800px" height="90px"></iframe>
     <br>
     <iframe id="frame_lct" src="lct/0.html" width="800px" height="270px"></iframe>
     <br>
     <script>
         let id = 0;
 
+        
         setInterval(function () {
             const S_obj = localStorage.getItem("tvpc");
             if (S_obj != null) {
@@ -28,6 +29,9 @@
             }
 
         }, 1000);
+
+
+
     </script>
 
 
