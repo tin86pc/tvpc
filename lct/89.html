@@ -8,9 +8,18 @@
 </head>
 
 <body>
-    <h4>Đối với trạm dừng nghỉ</h4>
+    <h4>Đối với cơ sở đăng kiểm phương tiện giao thông</h4>
 
-    <div class="tooltip">Nhập Khối tích (m3)
+  <div class="tooltip">Nhập diện tích (m2)
+        <span class="tooltiptext">
+            Diện tích của công trình
+        </span>
+    </div>
+    <input type="number" id="dien_tich" min="1">
+    <br>
+    <br>
+    
+    <div class="tooltip">Nhập khối tích (m3)
         <span class="tooltiptext">
             Khối tích của công trình
         </span>
@@ -19,16 +28,7 @@
     <br>
     <br>
 
-    <div class="tooltip">Loại
-        <select id="loai">
-            <option>Chọn loại . . .</option>
-            <option>loại I</option>
-            <option>loại II</option>
-        </select>
-    </div>
-
-    <br>
-    <br>
+  
 
     <textarea id="ket_qua" class="kq" rows="5
     " cols="70">
@@ -38,7 +38,8 @@
 
     <script>
         const khoi_tich = document.getElementById("khoi_tich")
-        const hang = document.getElementById("hang")
+        const dien_tich = document.getElementById("dien_tich")
+
         const ket_qua = document.getElementById("ket_qua")
 
         tinhtoan()
@@ -50,9 +51,15 @@
             tinhtoan();
         })
 
-        loai.addEventListener("change", (e) => {
+        dien_tich.addEventListener("change", () => {
             tinhtoan();
         })
+        dien_tich.addEventListener("keyup", () => {
+            tinhtoan();
+        })
+
+
+
 
 
         function tinhtoan() {
@@ -60,18 +67,15 @@
 
             ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
 
-            var text = loai.options[loai.selectedIndex].text;
-
-            if (text == "loại I" ) {
+            if (dien_tich.value >= 500 || khoi_tich.value >= 5000) {
                 ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
             }
 
-            if (text == "loại I" ) {
-                ket_qua.textContent += "- Do cơ quan công an quản lý\n"
-            }
+            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+
 
             if (khoi_tich.value >= 5000) {
-                ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+                // ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
             }
 
         }

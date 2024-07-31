@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h4>Đối với trạm dừng nghỉ</h4>
+    <h4>Đối với nhà chờ cáp treo vận chuyển người</h4>
 
     <div class="tooltip">Nhập Khối tích (m3)
         <span class="tooltiptext">
@@ -16,17 +16,6 @@
         </span>
     </div>
     <input type="number" id="khoi_tich" min="1">
-    <br>
-    <br>
-
-    <div class="tooltip">Loại
-        <select id="loai">
-            <option>Chọn loại . . .</option>
-            <option>loại I</option>
-            <option>loại II</option>
-        </select>
-    </div>
-
     <br>
     <br>
 
@@ -38,7 +27,7 @@
 
     <script>
         const khoi_tich = document.getElementById("khoi_tich")
-        const hang = document.getElementById("hang")
+    
         const ket_qua = document.getElementById("ket_qua")
 
         tinhtoan()
@@ -50,9 +39,7 @@
             tinhtoan();
         })
 
-        loai.addEventListener("change", (e) => {
-            tinhtoan();
-        })
+    
 
 
         function tinhtoan() {
@@ -60,15 +47,12 @@
 
             ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
 
-            var text = loai.options[loai.selectedIndex].text;
-
-            if (text == "loại I" ) {
+            if (khoi_tich.value >= 5000) {
                 ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
             }
 
-            if (text == "loại I" ) {
-                ket_qua.textContent += "- Do cơ quan công an quản lý\n"
-            }
+            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+
 
             if (khoi_tich.value >= 5000) {
                 ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
