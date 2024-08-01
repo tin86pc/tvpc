@@ -28,7 +28,7 @@
     <br>
     <br>
 
-    <div class="tooltip">Cơ quan nhà nước 
+    <div class="tooltip">Cơ quan nhà nước
         <select id="cap_quan_ly">
             <option>Chọn cấp . . .</option>
             <option>cấp xã</option>
@@ -45,12 +45,15 @@
 
 
 
-    <script>
+    <script type="module">
+
+        import { ghi } from "/func.js";
+
         const so_tang = document.getElementById("so_tang")
         const khoi_tich = document.getElementById("khoi_tich")
         const cap_quan_ly = document.getElementById("cap_quan_ly")
         const ket_qua = document.getElementById("ket_qua")
-        
+
         tinhtoan()
 
         so_tang.addEventListener("change", () => {
@@ -73,6 +76,7 @@
 
 
         function tinhtoan() {
+
             ket_qua.textContent = ""
 
             ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
@@ -81,20 +85,21 @@
                 ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
             }
 
-              var text = cap_quan_ly.options[cap_quan_ly.selectedIndex].text;
-            if(text=="cấp xã"){
+            var text = cap_quan_ly.options[cap_quan_ly.selectedIndex].text;
+            if (text == "cấp xã") {
                 ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
             }
-            if(text=="cấp huyện trở lên"){
+            if (text == "cấp huyện trở lên") {
                 ket_qua.textContent += "- Do cơ quan công an quản lý\n"
             }
-
 
             if (so_tang.value >= 7 || khoi_tich.value >= 5000) {
                 ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
             }
 
-          
+            ghi({ "khoi_tich": khoi_tich.value })
+            ghi({ "so_tang": so_tang.value })
+            ghi({ "cap_quan_ly": text })
 
         }
 

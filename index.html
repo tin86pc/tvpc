@@ -17,8 +17,9 @@
     <script>
         let id = 0;
 
-        
         setInterval(function () {
+
+            // đọc
             const S_obj = localStorage.getItem("tvpc");
             if (S_obj != null) {
                 const obj = JSON.parse(S_obj)
@@ -33,6 +34,10 @@
 
 
     </script>
+
+
+    <iframe id="frame_lct" src="tinh_bom/tinh_bom.html" width="800px" height="270px"></iframe>
+    <br>
 
 
 
