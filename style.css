@@ -1,3 +1,10 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+
 .tooltip {
     position: relative;
     display: inline-block;
@@ -23,10 +30,6 @@
     visibility: visible;
 }
 
-.kq{
+.kq {
     color: #ff0000;
-}
-
-.an{
-    visibility: hidden;
 }
