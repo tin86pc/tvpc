@@ -14,19 +14,16 @@
     <br>
     <iframe id="frame_lct" src="lct/0.html" width="800px" height="270px"></iframe>
     <br>
-    <script>
+    <script type="module">
+        import { doc } from "/func.js";
         let id = 0;
 
         setInterval(function () {
-
-            // đọc
-            const S_obj = localStorage.getItem("tvpc");
-            if (S_obj != null) {
-                const obj = JSON.parse(S_obj)
-                if (id != obj.id) {
-                    id = obj.id;
-                    document.getElementById("frame_lct").src = `lct/${id}.html`;
-                }
+            const id_moi=doc("id")
+            if (id != id_moi) {
+                id = id_moi;
+                console.log(id);
+                document.getElementById("frame_lct").src = `lct/${id}.html`;
             }
 
         }, 1000);
