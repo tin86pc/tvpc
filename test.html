@@ -2,239 +2,132 @@
 <html lang="vi">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  <title>tvpc</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
 
-    .row::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <script src="bootstrap.bundle.min.js"></script>
 
-    [class*="col-"] {
-      float: left;
-      padding: 15px;
-    }
-
-    html {
-      font-family: "Lucida Sans", sans-serif;
-    }
-
-    .header {
-      background-color: #9933cc;
-      color: #ffffff;
-      padding: 15px;
-    }
-
-    .menu ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .menu li {
-      padding: 8px;
-      margin-bottom: 7px;
-      background-color: #33b5e5;
-      color: #ffffff;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    }
-
-    .menu li:hover {
-      background-color: #0099cc;
-    }
-
-    .aside {
-      background-color: #33b5e5;
-      padding: 15px;
-      color: #ffffff;
-      text-align: center;
-      font-size: 14px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    }
-
-    .footer {
-      background-color: #0099cc;
-      color: #ffffff;
-      text-align: center;
-      font-size: 12px;
-      padding: 15px;
-    }
-
-    /* For mobile phones: */
-    [class*="col-"] {
-      width: 100%;
-    }
-
-    @media only screen and (min-width: 600px) {
-
-      /* For tablets: */
-      .col-s-1 {
-        width: 8.33%;
-      }
-
-      .col-s-2 {
-        width: 16.66%;
-      }
-
-      .col-s-3 {
-        width: 25%;
-      }
-
-      .col-s-4 {
-        width: 33.33%;
-      }
-
-      .col-s-5 {
-        width: 41.66%;
-      }
-
-      .col-s-6 {
-        width: 50%;
-      }
-
-      .col-s-7 {
-        width: 58.33%;
-      }
-
-      .col-s-8 {
-        width: 66.66%;
-      }
-
-      .col-s-9 {
-        width: 75%;
-      }
-
-      .col-s-10 {
-        width: 83.33%;
-      }
-
-      .col-s-11 {
-        width: 91.66%;
-      }
-
-      .col-s-12 {
-        width: 100%;
-      }
-    }
-
-    @media only screen and (min-width: 768px) {
-
-      /* For desktop: */
-      .col-1 {
-        width: 8.33%;
-      }
-
-      .col-2 {
-        width: 16.66%;
-      }
-
-      .col-3 {
-        width: 25%;
-      }
-
-      .col-4 {
-        width: 33.33%;
-      }
-
-      .col-5 {
-        width: 41.66%;
-      }
-
-      .col-6 {
-        width: 50%;
-      }
-
-      .col-7 {
-        width: 58.33%;
-      }
-
-      .col-8 {
-        width: 66.66%;
-      }
-
-      .col-9 {
-        width: 75%;
-      }
-
-      .col-10 {
-        width: 83.33%;
-      }
-
-      .col-11 {
-        width: 91.66%;
-      }
-
-      .col-12 {
-        width: 100%;
-      }
-    }
-  </style>
 </head>
 
 <body>
+  <div class="container mt-1 ">
 
-  <div class="header">
-    <h1>Chania</h1>
-  </div>
-
-  <div class="row">
-    <div class="col-3 col-s-3 menu">
-      <ul>
-        <li>The Flight</li>
-        <li>The City</li>
-        <li>The Island</li>
-        <li>The Food</li>
-      </ul>
+    <div class="mt-2">
+      <iframe src="DieuHuong/DieuHuong.html" width="100%" height="80px"></iframe>
     </div>
 
-    <div class="col-6 col-s-9">
-      <h1>The City</h1>
-      <p>Chania is the capital of the Chania region on the island of Crete. The city can be divided in two parts, the
-        old town and the modern city.</p>
-    </div>
+    <div class="mt-1 col-sm-12">
 
-    <div class="col-3 col-s-12">
-      <div class="aside">
-        <h2>What?</h2>
-        <p>Chania is a city on the island of Crete.</p>
-        <h2>Where?</h2>
-        <p>Crete is a Greek island in the Mediterranean Sea.</p>
-        <h2>How?</h2>
-        <p>You can reach Chania airport from all over Europe.</p>
+      <h4>Phân cấp quản lý, thẩm duyệt đối với công trình</h4>
+      <h5>(cập nhật theo nghị định 50)</h5>
+
+      <div class="mt-5">
+        <iframe src="lct/xet_tham_duyet.html" width="100%" height="80px"></iframe>
       </div>
+
+      <div class="mt-2">
+        <iframe id="frame_lct" src="lct/0.html" width="100%" height="270px"></iframe>
+      </div>
+
+      <script type="module">
+        import { doc } from "/func.js";
+        let id = 0;
+
+        setInterval(function () {
+          const id_moi = doc("id")
+          if (id != id_moi) {
+            id = id_moi;
+            console.log(id);
+            document.getElementById("frame_lct").src = `lct/${id}.html`;
+          }
+
+        }, 1000);
+
+      </script>
+
+      <div class="mt-5 p-2 bg-danger text-white text-center">
+        <p>zalo 0942 582 992</p>
+      </div>
+
+
+
+      <h3>(cập nhật theo nghị định 50)</h3>
+
+      <textarea rows="10
+    " cols="50">
+        - Nối tiếp cận cho xe chữa cháy
+        - Khoảng cách PCCC
+        - Bậc chịu lửa
+        - Bố trí mặt bằng
+        - Lối ra thoát nạn
+        - Ngăn cháy lan
+    </textarea>
+
+      <br>
+      <textarea rows="20
+    " cols="50">
+        - Hệ thống báo cháy tự động
+        - Hệ thống chữa cháy sprinkler
+        - Hệ thống chữa cháy trong nhà
+        - Phương án cấp nước chữa cháy ngoài nhà
+        - Họng nhận nước từ xe chữa cháy
+        - Trang bị bình chữa cháy
+        - Phương tiện chiếu sáng sự cố
+        - Chỉ dẫn thoát nạn
+        - Dụng cụ phá rỡ thông thường
+
+    </textarea>
+
+      <br>
+      <textarea rows="10
+    " cols="50">
+        - Hệ thống bảo vệ chống khói
+        - Giải pháp thông gió, chống tụ khói
+        - Nguồn điện cấp cho bơm chữa cháy và hệ thống bảo vệ chống khói
+        - Phương án chống sét
+
+    </textarea>
+
+
+
+
+
+
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2020</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco.</p>
+
+
+
+      <h2 class="mt-5">TITLE HEADING</h2>
+      <h5>Title description, Sep 2, 2020</h5>
+      <div class="fakeimg">Fake Image</div>
+      <p>Some text..</p>
+      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco.</p>
+
+
+
     </div>
+
+    <div id="div">
+
+    </div>
+
+
+
   </div>
 
-  <div class="footer">
-    <p>Resize the browser window to see how the content respond to the resizing.</p>
-  </div>
-
-  <script>
-    console.log("test.html");
-    async function getData() {
-      const url = "https://tin86pc.github.io/api/api.json";
-      console.log(url);
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-        }
-
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.error(error.message);
-      }
-    }
-
-    getData();
 
 
-  </script>
 
 </body>
 

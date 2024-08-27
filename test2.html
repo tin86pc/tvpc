@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    <script>
+        
+        var coolScript = "<h1>111111111</h1><script>" + "console.log('abc')" + "</" + "script>";
+
+        document.write(coolScript);
+
+
+    </script> -->
+
+    <script>
+        fetch('mytext.html')
+            .then(response => response.text())
+            .then(text => {
+                document.write(text)
+            })
+
+    </script>
+
+</body>
+
+</html>
