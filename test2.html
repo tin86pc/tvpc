@@ -2,30 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>tvpc</title>
+    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <script src="/bootstrap.bundle.min.js"></script>
+
+
 </head>
 
 <body>
-    <!-- 
-    <script>
-        
-        var coolScript = "<h1>111111111</h1><script>" + "console.log('abc')" + "</" + "script>";
+    <div id="nd"></div>
 
-        document.write(coolScript);
-
-
-    </script> -->
 
     <script>
+
+        function TextToHtml(id, text) {
+            let g = document.getElementById(id);
+            g.innerHTML = text
+            var scripts = g.getElementsByTagName("script");
+            for (var i = 0; i < scripts.length; i++) {
+                eval(scripts[i].innerText);
+            }
+        }
+
+
         fetch('mytext.html')
             .then(response => response.text())
             .then(text => {
-                document.write(text)
+                TextToHtml("nd", text);
             })
 
     </script>
+
+
 
 </body>
 
