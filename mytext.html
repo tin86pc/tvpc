@@ -16,7 +16,8 @@
 
 <textarea id="ket_qua" class="kq" rows="5" cols="70"></textarea>
 
-<script>
+<script type="module">
+
     const so_tang = document.getElementById("so_tang")
     const khoi_tich = document.getElementById("khoi_tich")
     const ket_qua = document.getElementById("ket_qua")
@@ -58,8 +59,12 @@
         if (so_tang.value >= 7 || khoi_tich.value >= 5000) {
             ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
         }
+        ghi({ "khoi_tich": khoi_tich.value })
+        ghi({ "so_tang": so_tang.value })
+ 
 
     }
+
 
 
 </script>

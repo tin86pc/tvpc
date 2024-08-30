@@ -20,6 +20,7 @@ function ghi(o) {
     // ghi 
     Object.assign(obj, o);
     localStorage.setItem("tvpc", JSON.stringify(obj));
+    console.log("Ghi localStorage");
     console.log(obj);
 }
 
