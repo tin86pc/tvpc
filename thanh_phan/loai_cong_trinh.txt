@@ -1,4 +1,3 @@
-let string_loai_cong_trinh = `
 Trụ sở cơ quan nhà nước
 
 Nhà chung cư
@@ -129,8 +128,3 @@ Bãi chứa hàng hóa, vật tư, phế liệu
 Cơ sở khác có trạm cấp xăng dầu nội bộ hoặc có sử dụng hệ thống cấp khí đốt trung tâm 
 
 Nhà để ở kết hợp sản xuất, kinh doanh hàng hóa dễ cháy, nổ 
-
-`;
-let mang_loai_cong_trinh = string_loai_cong_trinh.trim().split(`\n`);
-
-export { string_loai_cong_trinh ,mang_loai_cong_trinh }

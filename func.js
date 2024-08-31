@@ -20,8 +20,28 @@ function ghi(o) {
     // ghi 
     Object.assign(obj, o);
     localStorage.setItem("tvpc", JSON.stringify(obj));
-    console.log("Ghi localStorage");
-    console.log(obj);
+    // console.log("Ghi localStorage");
+    // console.log(obj);
+}
+function TextToHtml(id, text) {
+    // console.log(id);
+    // console.log(text);
+    if (text == null || id == null)
+        return;
+
+
+
+    let g = document.getElementById(id);
+
+    // Thêm giao diện
+    g.innerHTML = text
+
+    // Thêm code
+    var scripts = g.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+        eval(scripts[i].innerText);
+    }
 }
 
-export { doc, ghi }
+
+export { doc, ghi, TextToHtml }
