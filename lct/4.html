@@ -7,63 +7,60 @@
 <br>
 <br>
 
-<div">Nhập Khối tích (m3)
+<div>Nhập Khối tích (m3)</div>
+<input type="number" id="khoi_tich" min="1">
+<br>
+<br>
 
-    </div>
-    <input type="number" id="khoi_tich" min="1">
-    <br>
-    <br>
-
-    <textarea id="ket_qua" class="kq" rows="5
-    " cols="70">
-    </textarea>
+<div id="ket_qua">
+</div>
 
 
 
-    <script>
-        const so_tang = document.getElementById("so_tang")
-        const khoi_tich = document.getElementById("khoi_tich")
-        const ket_qua = document.getElementById("ket_qua")
+<script>
+    const so_tang = document.getElementById("so_tang")
+    const khoi_tich = document.getElementById("khoi_tich")
+    const ket_qua = document.getElementById("ket_qua")
 
+    tinhtoan()
+
+    so_tang.addEventListener("change", () => {
         tinhtoan()
+    })
+    so_tang.addEventListener("keyup", () => {
+        tinhtoan()
+    })
 
-        so_tang.addEventListener("change", () => {
-            tinhtoan()
-        })
-        so_tang.addEventListener("keyup", () => {
-            tinhtoan()
-        })
-
-        khoi_tich.addEventListener("change", () => {
-            tinhtoan();
-        })
-        khoi_tich.addEventListener("keyup", () => {
-            tinhtoan();
-        })
+    khoi_tich.addEventListener("change", () => {
+        tinhtoan();
+    })
+    khoi_tich.addEventListener("keyup", () => {
+        tinhtoan();
+    })
 
 
-        function tinhtoan() {
-            ket_qua.textContent = ""
+    function tinhtoan() {
+        ket_qua.innerHTML = ""
 
-            ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
+        ket_qua.innerHTML += "<p>- Công trình thuộc diện quản lý về phòng cháy và chữa cháy</p>"
 
-            if (so_tang.value >= 7 || khoi_tich.value >= 10000) {
-                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
-            }
-
-            if (so_tang.value >= 5 || khoi_tich.value >= 2500) {
-                ket_qua.textContent += "- Do cơ quan công an quản lý\n"
-            }
-
-            if (so_tang.value < 5 && khoi_tich.value < 2500) {
-                ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
-            }
-
-            if (so_tang.value >= 7 || khoi_tich.value >= 5000) {
-                ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
-            }
-
+        if (so_tang.value >= 7 || khoi_tich.value >= 10000) {
+            ket_qua.innerHTML += "<p>- Công trình thuộc diện có nguy hiểm về cháy nổ</p>"
         }
 
+        if (so_tang.value >= 5 || khoi_tich.value >= 2500) {
+            ket_qua.innerHTML += "<p>- Do cơ quan công an quản lý</p>"
+        }
 
-    </script>
+        if (so_tang.value < 5 && khoi_tich.value < 2500) {
+            ket_qua.innerHTML += "<p>- Do ủy ban nhân dân cấp xã quản lý</p>"
+        }
+
+        if (so_tang.value >= 7 || khoi_tich.value >= 5000) {
+            ket_qua.innerHTML += "<p>- Công trình thuộc diện phải thẩm duyệt nghiệm thu</p>"
+        }
+
+    }
+
+
+</script>

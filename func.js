@@ -43,5 +43,26 @@ function TextToHtml(id, text) {
     }
 }
 
+function pl1(ket_qua) {
+    ket_qua.innerHTML += "<p>- Công trình thuộc diện quản lý về phòng cháy và chữa cháy</p>"
+}
 
-export { doc, ghi, TextToHtml }
+function pl2(ket_qua) {
+    ket_qua.innerHTML += "<p>- Công trình thuộc diện có nguy hiểm về cháy nổ</p>"
+}
+
+
+function pl3(ket_qua) {
+    ket_qua.innerHTML += "<p>- Do cơ quan công an quản lý</p>"
+}
+
+function pl4(ket_qua) {
+    ket_qua.innerHTML += "<p>- Do ủy ban nhân dân cấp xã quản lý</p>"
+}
+
+function pl5(ket_qua) {
+    ket_qua.innerHTML += "<p>- Công trình thuộc diện phải thẩm duyệt nghiệm thu</p>"
+}
+
+
+export { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5 }

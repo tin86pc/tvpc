@@ -60,23 +60,23 @@
 
         ket_qua.innerHTML = ""
 
-        ket_qua.innerHTML += "<p>- Công trình thuộc diện quản lý về phòng cháy và chữa cháy</p>"
+        pl1(ket_qua);
 
         if (so_tang.value >= 10 || khoi_tich.value >= 25000) {
-            ket_qua.innerHTML += "<p>- Công trình thuộc diện có nguy hiểm về cháy nổ</p>"
+            pl2(ket_qua);
         }
 
         var text = cap_quan_ly.options[cap_quan_ly.selectedIndex].text;
         if (text == "cấp xã") {
-            ket_qua.innerHTML += "<p>- Do ủy ban nhân dân cấp xã quản lý</p>"
+            pl3(ket_qua);
         }
 
         if (text == "cấp huyện trở lên") {
-            ket_qua.innerHTML += "<p>- Do cơ quan công an quản lý</p>"
+            pl4(ket_qua);
         }
 
         if (so_tang.value >= 7 || khoi_tich.value >= 5000) {
-            ket_qua.innerHTML += "<p>- Công trình thuộc diện phải thẩm duyệt nghiệm thu</p>"
+            pl5(ket_qua);
         }
     }
 

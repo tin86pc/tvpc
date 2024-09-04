@@ -14,9 +14,8 @@
 <br>
 <br>
 
-<textarea id="ket_qua" class="kq" rows="5
-    " cols="70">
-    </textarea>
+<div id="ket_qua">
+</div>
 
 
 
@@ -43,24 +42,24 @@
 
 
     function tinhtoan() {
-        ket_qua.textContent = ""
+        ket_qua.innerHTML = ""
 
-        ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
+        ket_qua.innerHTML += "<p>- Công trình thuộc diện quản lý về phòng cháy và chữa cháy</p>"
 
         if (so_tang.value >= 5 || khoi_tich.value >= 5000) {
-            ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
+            ket_qua.innerHTML += "<p>- Công trình thuộc diện có nguy hiểm về cháy nổ</p>"
         }
 
         if (so_tang.value >= 5 || khoi_tich.value >= 1500) {
-            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+            ket_qua.innerHTML += "<p>- Do cơ quan công an quản lý</p>"
         }
 
         if (so_tang.value < 5 && khoi_tich.value < 1500) {
-            ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+            ket_qua.innerHTML += "<p>- Do ủy ban nhân dân cấp xã quản lý</p>"
         }
 
         if (so_tang.value >= 7 || khoi_tich.value >= 5000) {
-            ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+            ket_qua.innerHTML += "<p>- Công trình thuộc diện phải thẩm duyệt nghiệm thu</p>"
         }
 
     }
