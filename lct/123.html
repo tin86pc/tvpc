@@ -1,58 +1,56 @@
+<h4>Đối với Kho lưu trữ quốc gia</h4>
 
-    <h4>Đối với Kho lưu trữ quốc gia</h4>
+<div>Nhập Khối tích (m3)
 
-    <div >Nhập Khối tích (m3)
-       
-    </div>
-    <input type="number" id="khoi_tich" min="1">
-    <br>
-    <br>
+</div>
+<input type="number" id="khoi_tich" min="1">
+<br>
+<br>
 
-    <textarea id="ket_qua" class="kq" rows="5
+<textarea id="ket_qua" class="kq" rows="5
     " cols="70">
     </textarea>
 
 
 
-    <script>
-        const khoi_tich = document.getElementById("khoi_tich")
+<script>
+    const khoi_tich = document.getElementById("khoi_tich")
 
-        const ket_qua = document.getElementById("ket_qua")
+    const ket_qua = document.getElementById("ket_qua")
 
-        tinhtoan()
+    tinhtoan()
 
-        khoi_tich.addEventListener("change", () => {
-            tinhtoan();
-        })
-        khoi_tich.addEventListener("keyup", () => {
-            tinhtoan();
-        })
-
-
+    khoi_tich.addEventListener("change", () => {
+        tinhtoan();
+    })
+    khoi_tich.addEventListener("keyup", () => {
+        tinhtoan();
+    })
 
 
-        function tinhtoan() {
-            ket_qua.textContent = ""
-
-            ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
-
-            if (khoi_tich.value >= 5000) {
-                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
-            }
-
-            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
 
 
-            // if (khoi_tich.value < 5000) {
-            //     ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
-            // }
+    function tinhtoan() {
+        ket_qua.textContent = ""
 
-            // if (khoi_tich.value >= 1000) {
-            //     ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
-            // }
+        ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
 
+        if (khoi_tich.value >= 5000) {
+            ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
         }
 
+        ket_qua.textContent += "- Do cơ quan công an quản lý\n"
 
-    </script>
 
+        // if (khoi_tich.value < 5000) {
+        //     ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+        // }
+
+        // if (khoi_tich.value >= 1000) {
+        //     ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+        // }
+
+    }
+
+
+</script>

@@ -1,61 +1,59 @@
+<h4>Đối với cơ sở khác có trạm cấp xăng dầu nội bộ hoặc có sử dụng hệ thống cấp khí đốt trung tâm</h4>
 
-    <h4>Đối với cơ sở khác có trạm cấp xăng dầu nội bộ hoặc có sử dụng hệ thống cấp khí đốt trung tâm</h4>
-    
-    <div >Nhập lượng khí sử dụng (kg)
-       
-    </div>
-    <input type="number" id="luong_khi" min="1">
-    <br>
-    <br>
+<div>Nhập lượng khí sử dụng (kg)
 
-    <textarea id="ket_qua" class="kq" rows="5
+</div>
+<input type="number" id="luong_khi" min="1">
+<br>
+<br>
+
+<textarea id="ket_qua" class="kq" rows="5
     " cols="70">
     </textarea>
 
 
 
-    <script>
-        const luong_khi = document.getElementById("luong_khi")
+<script>
+    const luong_khi = document.getElementById("luong_khi")
 
-        const ket_qua = document.getElementById("ket_qua")
+    const ket_qua = document.getElementById("ket_qua")
 
-        tinhtoan()
+    tinhtoan()
 
-        luong_khi.addEventListener("change", () => {
-            tinhtoan();
-        })
-        luong_khi.addEventListener("keyup", () => {
-            tinhtoan();
-        })
+    luong_khi.addEventListener("change", () => {
+        tinhtoan();
+    })
+    luong_khi.addEventListener("keyup", () => {
+        tinhtoan();
+    })
 
-       
 
-        function tinhtoan() {
-            ket_qua.textContent = ""
 
-            if (luong_khi.value >= 70) {
+    function tinhtoan() {
+        ket_qua.textContent = ""
+
+        if (luong_khi.value >= 70) {
             ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
-            }
-
-
-            if (luong_khi.value >= 70) {
-                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
-            }
-
-            if (luong_khi.value >= 70) {
-                ket_qua.textContent += "- Do cơ quan công an quản lý\n"
-            }
-
-            // if (luong_khi.value < 1000) {
-            //     ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
-            // }
-
-            // if (luong_khi.value >= 5000) {
-            //     ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
-            // }
-
         }
 
 
-    </script>
+        if (luong_khi.value >= 70) {
+            ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
+        }
 
+        if (luong_khi.value >= 70) {
+            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+        }
+
+        // if (luong_khi.value < 1000) {
+        //     ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+        // }
+
+        // if (luong_khi.value >= 5000) {
+        //     ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+        // }
+
+    }
+
+
+</script>

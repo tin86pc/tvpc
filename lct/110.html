@@ -1,72 +1,70 @@
+<h4>Đối với Cửa hàng kinh doanh chất lỏng dễ cháy</h4>
 
-    <h4>Đối với Cửa hàng kinh doanh chất lỏng dễ cháy</h4>
+<div>Nhập số cột bơm
 
-    <div >Nhập số cột bơm
-        
-    </div>
-    <input type="number" id="so_cot" min="1">
-    <br>
-    <br>
+</div>
+<input type="number" id="so_cot" min="1">
+<br>
+<br>
 
-    <div >Nhập tổng lượng khí tồn (kg)
-       
-    </div>
-    <input type="number" id="tong_luong" min="0">
-    <br>
-    <br>
+<div>Nhập tổng lượng khí tồn (kg)
 
-    <textarea id="ket_qua" class="kq" rows="5
+</div>
+<input type="number" id="tong_luong" min="0">
+<br>
+<br>
+
+<textarea id="ket_qua" class="kq" rows="5
     " cols="70">
     </textarea>
 
 
 
-    <script>
-        const so_cot = document.getElementById("so_cot")
-        const tong_luong = document.getElementById("tong_luong")
+<script>
+    const so_cot = document.getElementById("so_cot")
+    const tong_luong = document.getElementById("tong_luong")
 
-        const ket_qua = document.getElementById("ket_qua")
+    const ket_qua = document.getElementById("ket_qua")
 
-        tinhtoan()
+    tinhtoan()
 
-        so_cot.addEventListener("change", () => {
-            tinhtoan();
-        })
-        so_cot.addEventListener("keyup", () => {
-            tinhtoan();
-        })
+    so_cot.addEventListener("change", () => {
+        tinhtoan();
+    })
+    so_cot.addEventListener("keyup", () => {
+        tinhtoan();
+    })
 
-        tong_luong.addEventListener("change", () => {
-            tinhtoan();
-        })
-        tong_luong.addEventListener("keyup", () => {
-            tinhtoan();
-        })
-
-
-
-        function tinhtoan() {
-            ket_qua.textContent = ""
-
-            ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
+    tong_luong.addEventListener("change", () => {
+        tinhtoan();
+    })
+    tong_luong.addEventListener("keyup", () => {
+        tinhtoan();
+    })
 
 
-            ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
+
+    function tinhtoan() {
+        ket_qua.textContent = ""
+
+        ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
 
 
-            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+        ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
 
 
-            if (tong_luong.value < 150) {
-                ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
-            }
+        ket_qua.textContent += "- Do cơ quan công an quản lý\n"
 
-            if (so_cot.value >= 1) {
-                ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
-            }
 
+        if (tong_luong.value < 150) {
+            ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
         }
 
+        if (so_cot.value >= 1) {
+            ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+        }
 
-    </script>
+    }
 
+
+</script>
