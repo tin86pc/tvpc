@@ -1,111 +1,84 @@
-<!DOCTYPE html>
-<html lang="vi">
+<h4>Đối với công trình Trụ sở cơ quan nhà nước</h4>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-</head>
+<div>Nhập số tầng
+</div>
+<input type="number" id="so_tang" min="1" max="200">
+<br>
+<br>
 
-<body>
-    <h4>Đối với công trình Trụ sở cơ quan nhà nước</h4>
+<div>Nhập Khối tích (m3)
 
-    <div class="tooltip">Nhập số tầng
-        <span class="tooltiptext">
-            Số tầng của tòa nhà = Toàn bộ các tầng trên mặt đất (gồm cả tầng kỹ thuật, tầng áp mái, mái tum) + tầng hầm
-        </span>
-    </div>
-    <input type="number" id="so_tang" min="1" max="200">
-    <br>
-    <br>
+</div>
+<input type="number" id="khoi_tich" min="1">
+<br>
+<br>
 
-    <div class="tooltip">Nhập Khối tích (m3)
-        <span class="tooltiptext">
-            Khối tích của công trình
-        </span>
-    </div>
-    <input type="number" id="khoi_tich" min="1">
-    <br>
-    <br>
+<div>Cơ quan nhà nước
+    <select id="cap_quan_ly">
+        <option>Chọn cấp . . .</option>
+        <option>cấp xã</option>
+        <option>cấp huyện trở lên</option>
+    </select>
+</div>
 
-    <div class="tooltip">Cơ quan nhà nước
-        <select id="cap_quan_ly">
-            <option>Chọn cấp . . .</option>
-            <option>cấp xã</option>
-            <option>cấp huyện trở lên</option>
-        </select>
-    </div>
+<br>
+<br>
 
-    <br>
-    <br>
-
-    <textarea id="ket_qua" class="kq" rows="5
+<textarea id="ket_qua" class="kq" rows="5
     " cols="70">
     </textarea>
 
 
 
-    <script type="module">
+<script>
 
-        import { ghi } from "/func.js";
+    const so_tang = document.getElementById("so_tang")
+    const khoi_tich = document.getElementById("khoi_tich")
+    const cap_quan_ly = document.getElementById("cap_quan_ly")
+    const ket_qua = document.getElementById("ket_qua")
 
-        const so_tang = document.getElementById("so_tang")
-        const khoi_tich = document.getElementById("khoi_tich")
-        const cap_quan_ly = document.getElementById("cap_quan_ly")
-        const ket_qua = document.getElementById("ket_qua")
+    tinhtoan()
 
+    so_tang.addEventListener("change", () => {
         tinhtoan()
+    })
+    so_tang.addEventListener("keyup", () => {
+        tinhtoan()
+    })
 
-        so_tang.addEventListener("change", () => {
-            tinhtoan()
-        })
-        so_tang.addEventListener("keyup", () => {
-            tinhtoan()
-        })
+    khoi_tich.addEventListener("change", () => {
+        tinhtoan();
+    })
+    khoi_tich.addEventListener("keyup", () => {
+        tinhtoan();
+    })
 
-        khoi_tich.addEventListener("change", () => {
-            tinhtoan();
-        })
-        khoi_tich.addEventListener("keyup", () => {
-            tinhtoan();
-        })
+    cap_quan_ly.addEventListener("change", (e) => {
+        tinhtoan();
+    })
 
-        cap_quan_ly.addEventListener("change", (e) => {
-            tinhtoan();
-        })
+    function tinhtoan() {
 
+        ket_qua.textContent = ""
 
-        function tinhtoan() {
+        ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
 
-            ket_qua.textContent = ""
-
-            ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
-
-            if (so_tang.value >= 10 || khoi_tich.value >= 25000) {
-                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
-            }
-
-            var text = cap_quan_ly.options[cap_quan_ly.selectedIndex].text;
-            if (text == "cấp xã") {
-                ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
-            }
-            if (text == "cấp huyện trở lên") {
-                ket_qua.textContent += "- Do cơ quan công an quản lý\n"
-            }
-
-            if (so_tang.value >= 7 || khoi_tich.value >= 5000) {
-                ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
-            }
-
-            ghi({ "khoi_tich": khoi_tich.value })
-            ghi({ "so_tang": so_tang.value })
-            ghi({ "cap_quan_ly": text })
-
+        if (so_tang.value >= 10 || khoi_tich.value >= 25000) {
+            ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
         }
 
+        var text = cap_quan_ly.options[cap_quan_ly.selectedIndex].text;
+        if (text == "cấp xã") {
+            ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+        }
+        if (text == "cấp huyện trở lên") {
+            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+        }
 
-    </script>
+        if (so_tang.value >= 7 || khoi_tich.value >= 5000) {
+            ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+        }
+    }
 
-</body>
 
-</html>
+</script>

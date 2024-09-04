@@ -1,93 +1,75 @@
-<!DOCTYPE html>
-<html lang="vi">
+<h4>Đối với gara để xe oto</h4>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-</head>
+<div>Nhập sức chứa (xe)
 
-<body>
-    <h4>Đối với gara để xe oto</h4>
+</div>
+<input type="number" id="suc_chua" min="1">
+<br>
+<br>
 
-    <div class="tooltip">Nhập sức chứa (xe)
-        <span class="tooltiptext">
-            Sức chứa của gara
-        </span>
-    </div>
-    <input type="number" id="suc_chua" min="1">
-    <br>
-    <br>
+<div>Nhập khối tích (m3)
 
-    <div class="tooltip">Nhập khối tích (m3)
-        <span class="tooltiptext">
-            Khối tích của công trình
-        </span>
-    </div>
-    <input type="number" id="khoi_tich" min="1">
-    <br>
-    <br>
+</div>
+<input type="number" id="khoi_tich" min="1">
+<br>
+<br>
 
 
 
-    <textarea id="ket_qua" class="kq" rows="5
+<textarea id="ket_qua" class="kq" rows="5
     " cols="70">
     </textarea>
 
 
 
-    <script>
-        const khoi_tich = document.getElementById("khoi_tich")
-        const suc_chua = document.getElementById("suc_chua")
+<script>
+    const khoi_tich = document.getElementById("khoi_tich")
+    const suc_chua = document.getElementById("suc_chua")
 
-        const ket_qua = document.getElementById("ket_qua")
+    const ket_qua = document.getElementById("ket_qua")
 
-        tinhtoan()
+    tinhtoan()
 
-        khoi_tich.addEventListener("change", () => {
-            tinhtoan();
-        })
-        khoi_tich.addEventListener("keyup", () => {
-            tinhtoan();
-        })
+    khoi_tich.addEventListener("change", () => {
+        tinhtoan();
+    })
+    khoi_tich.addEventListener("keyup", () => {
+        tinhtoan();
+    })
 
-        suc_chua.addEventListener("change", () => {
-            tinhtoan();
-        })
-        suc_chua.addEventListener("keyup", () => {
-            tinhtoan();
-        })
-
-
+    suc_chua.addEventListener("change", () => {
+        tinhtoan();
+    })
+    suc_chua.addEventListener("keyup", () => {
+        tinhtoan();
+    })
 
 
 
-        function tinhtoan() {
-            ket_qua.textContent = ""
 
-            ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
 
-            if (suc_chua.value >= 50) {
-                ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
-            }
+    function tinhtoan() {
+        ket_qua.textContent = ""
 
-            if (suc_chua.value >= 10 ) {
-                ket_qua.textContent += "- Do cơ quan công an quản lý\n"
-            }
+        ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
 
-            if (suc_chua.value < 10 ) {
-                ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
-            }
-
-            if (khoi_tich.value >= 3000) {
-                ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
-            }
-
+        if (suc_chua.value >= 50) {
+            ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
         }
 
+        if (suc_chua.value >= 10) {
+            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+        }
 
-    </script>
+        if (suc_chua.value < 10) {
+            ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+        }
 
-</body>
+        if (khoi_tich.value >= 3000) {
+            ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+        }
 
-</html>
+    }
+
+
+</script>
