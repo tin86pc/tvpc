@@ -7,9 +7,7 @@
 <br>
 <br>
 
-<textarea id="ket_qua" class="kq" rows="5
-    " cols="70">
-    </textarea>
+<div id="ket_qua"></div>
 
 
 
@@ -29,24 +27,24 @@
 
 
     function tinhtoan() {
-        ket_qua.textContent = ""
+        ket_qua.innerHTML = ""
 
-        ket_qua.textContent += "- Công trình thuộc diện quản lý về phòng cháy và chữa cháy\n"
+        pl1(ket_qua);
 
         if (tong_luong.value >= 200) {
-            ket_qua.textContent += "- Công trình thuộc diện có nguy hiểm về cháy nổ\n"
+            pl2(ket_qua);
         }
 
         if (tong_luong.value >= 150) {
-            ket_qua.textContent += "- Do cơ quan công an quản lý\n"
+            pl3(ket_qua);
         }
 
         if (tong_luong.value < 150) {
-            ket_qua.textContent += "- Do ủy ban nhân dân cấp xã quản lý\n"
+            pl4(ket_qua);
         }
 
         if (tong_luong.value >= 1000) {
-            ket_qua.textContent += "- Công trình thuộc diện phải thẩm duyệt nghiệm thu\n"
+            pl5(ket_qua);
         }
 
     }
