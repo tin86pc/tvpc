@@ -65,4 +65,11 @@ function pl5(ket_qua) {
 }
 
 
-export { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5 }
+function loadText(url) {
+    return fetch(url)
+        .then(response => response.text());
+}
+
+
+
+export { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5, loadText }

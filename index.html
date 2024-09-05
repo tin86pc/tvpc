@@ -32,12 +32,14 @@
             </div>
 
             <div class="right">
-                <h2>What?</h2>
-                <p>Cinque Terre comprises five villages: Monterosso, Vernazza, Corniglia, Manarola, and Riomaggiore.</p>
-                <h2>Where?</h2>
-                <p>On the northwest cost of the Italian Riviera, north of the city La Spezia.</p>
-                <h2>Price?</h2>
-                <p>The Walk is free!</p>
+                <h4 onclick="Noi_tiep_can()">- Nối tiếp cận cho xe chữa cháy</h4>
+                <h4>- Đường cho xe chữa cháy</h4>
+                <h4>- Khoảng cách pccc</h4>
+                <h4>- Bậc chịu lửa</h4>
+                <h4>- Bố trí mặt bằng</h4>
+                <h4>- Lối ra thoát nạn</h4>
+                <h4>- Ngăn cháy lan</h4>
+
             </div>
         </div>
 
@@ -49,23 +51,72 @@
 
 
         <script type="module">
+            import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5, loadText } from "/func.js";
 
-            import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5 } from "/func.js";
 
-            fetch('/thanh_phan/ChonLoaiCongTrinh.html')
-                .then(response => response.text())
+            loadText('/thanh_phan/ChonLoaiCongTrinh.html')
                 .then(text => {
                     TextToHtml("chon_loai_cong_trinh", text);
-                    document.getElementById("lct").addEventListener("change", (e) => {
-                        const v = e.target.value;
-                        fetch(`/lct/${v}.html`)
-                            .then(r => r.text())
-                            .then(s => {
-                                TextToHtml("loai_cong_trinh", s);
-                            })
-                    })
+                    const e = document.getElementById("lct")
+                    if (e != null) {
+                        document.getElementById("lct").addEventListener("change", (e) => {
+                            const v = e.target.value;
+                            loadText(`/lct/${v}.html`)
+                                .then(s => {
+                                    TextToHtml("loai_cong_trinh", s);
+                                })
+                        })
+                    }
+
+
                 })
 
+
+            function show(t) {
+                return new Promise(function (resolve, reject) {
+                    TextToHtml("chon_loai_cong_trinh", t);
+                    const e = document.getElementById("lct")
+                    // reject()
+                    // resolve()
+
+                })
+            }
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+        <script>
+            function Noi_tiep_can() {
+                console.log('nối tiếp cận');
+            }
+
+
+            let promise = new Promise(function (resolve, reject) {
+                setTimeout(() => resolve(1), 1000);
+            });
+
+            promise.then(function (result) {
+                console.log("-1-" + result); // 1
+                return result * 2;
+            });
+
+            promise.then(function (result) {
+                console.log("-2-" + result); // 1
+                return result * 2;
+            });
+
+            promise.then(function (result) {
+                console.log("-3-" + result); // 1
+                return result * 2;
+            });
 
 
 
