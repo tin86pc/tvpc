@@ -18,14 +18,14 @@
             <h3>Tư vấn phòng cháy</h3>
         </div>
 
-        <div style="overflow:auto">
+        <div style="overflow:auto ">
             <div class="menu">
                 <div class="menuitem">Trang chủ</div>
                 <div class="menuitem">Báo giá</div>
                 <div class="menuitem">Công cụ</div>
             </div>
 
-            <div class="main">
+            <div class="main" style="padding: 15px;">
                 <div id="chon_loai_cong_trinh"></div>
                 <div id="loai_cong_trinh"></div>
 
@@ -54,13 +54,22 @@
             import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5, loadText } from "/func.js";
 
 
+
+
+
+
             loadText('/thanh_phan/ChonLoaiCongTrinh.html')
-                .then(text => {
+                .then(function (text) {
                     TextToHtml("chon_loai_cong_trinh", text);
+                })
+                .then(function () {
+
                     const e = document.getElementById("lct")
                     if (e != null) {
-                        document.getElementById("lct").addEventListener("change", (e) => {
+                        e.addEventListener("change", (e) => {
                             const v = e.target.value;
+
+
                             loadText(`/lct/${v}.html`)
                                 .then(s => {
                                     TextToHtml("loai_cong_trinh", s);
@@ -68,19 +77,31 @@
                         })
                     }
 
-
                 })
 
 
-            function show(t) {
-                return new Promise(function (resolve, reject) {
-                    TextToHtml("chon_loai_cong_trinh", t);
-                    const e = document.getElementById("lct")
-                    // reject()
-                    // resolve()
 
-                })
-            }
+
+
+
+            // loadText('/thanh_phan/ChonLoaiCongTrinh.html')
+            //     .then(text => {
+            //         TextToHtml("chon_loai_cong_trinh", text);
+            //         const e = document.getElementById("lct")
+            //         if (e != null) {
+            //             e.addEventListener("change", (e) => {
+            //                 const v = e.target.value;
+            //                 loadText(`/lct/${v}.html`)
+            //                     .then(s => {
+            //                         TextToHtml("loai_cong_trinh", s);
+            //                     })
+            //             })
+            //         }
+
+
+            //     })
+
+
 
 
 
@@ -98,25 +119,30 @@
                 console.log('nối tiếp cận');
             }
 
+            const p1 = () => {
+                return new Promise((resolve, reject) => {
+                    console.log("P1");
+                    resolve();
+                });
+            };
 
-            let promise = new Promise(function (resolve, reject) {
-                setTimeout(() => resolve(1), 1000);
-            });
+            p1().then(p1).then(p1).then(p1).then(p1).then(p1).then(p1).then(p1).then(p1).then(p1)
 
-            promise.then(function (result) {
-                console.log("-1-" + result); // 1
-                return result * 2;
-            });
 
-            promise.then(function (result) {
-                console.log("-2-" + result); // 1
-                return result * 2;
-            });
 
-            promise.then(function (result) {
-                console.log("-3-" + result); // 1
-                return result * 2;
-            });
+
+
+
+
+
+
+
+
+
+       
+
+
+
 
 
 
