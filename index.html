@@ -1,87 +1,72 @@
 <!DOCTYPE html>
 <html lang="vi">
-
-<head>
+  <head>
     <title>tvpc</title>
-    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body style="font-family: Verdana">
+    <div style="background-color: #f95428; padding: 15px">
+      <h1>tvpc</h1>
+      <h3>Tư vấn phòng cháy</h3>
+    </div>
 
-    <body style="font-family:Verdana;">
+    <div style="overflow: auto">
+      <div class="menu">
+        <div class="menuitem">Trang chủ</div>
+        <div class="menuitem">Báo giá</div>
+        <div class="menuitem">Công cụ</div>
+      </div>
 
-        <div style="background-color:#F95428;padding:15px;">
-            <h1>tvpc</h1>
-            <h3>Tư vấn phòng cháy</h3>
-        </div>
+      <div class="main" style="padding: 15px">
+        <div id="chon_loai_cong_trinh"></div>
+        <div id="loai_cong_trinh"></div>
+      </div>
 
-        <div style="overflow:auto ">
-            <div class="menu">
-                <div class="menuitem">Trang chủ</div>
-                <div class="menuitem">Báo giá</div>
-                <div class="menuitem">Công cụ</div>
-            </div>
+      <div class="right">
+        <h4 onclick="Noi_tiep_can()">- Nối tiếp cận cho xe chữa cháy</h4>
+        <h4>- Đường cho xe chữa cháy</h4>
+        <h4>- Khoảng cách pccc</h4>
+        <h4>- Bậc chịu lửa</h4>
+        <h4>- Bố trí mặt bằng</h4>
+        <h4>- Lối ra thoát nạn</h4>
+        <h4>- Ngăn cháy lan</h4>
+      </div>
+    </div>
 
-            <div class="main" style="padding: 15px;">
-                <div id="chon_loai_cong_trinh"></div>
-                <div id="loai_cong_trinh"></div>
+    <div
+      style="
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px;
+        margin-top: 7px;
+        font-size: 12px;
+      "
+    >
+      This web page is a part of a demonstration of fluid web design made by
+      w3schools.com. Resize the browser window to see the content respond to the
+      resizing.
+    </div>
 
-            </div>
+    <script>
+      function Noi_tiep_can() {
+        console.log("nối tiếp cận");
+      }
+    </script>
 
-            <div class="right">
-                <h4 onclick="Noi_tiep_can()">- Nối tiếp cận cho xe chữa cháy</h4>
-                <h4>- Đường cho xe chữa cháy</h4>
-                <h4>- Khoảng cách pccc</h4>
-                <h4>- Bậc chịu lửa</h4>
-                <h4>- Bố trí mặt bằng</h4>
-                <h4>- Lối ra thoát nạn</h4>
-                <h4>- Ngăn cháy lan</h4>
+    <script type="module">
+      import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5 } from "/func.js";
 
-            </div>
-        </div>
-
-
-        <div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;"> This web
-            page is a part of a demonstration of fluid web design made by w3schools.com. Resize the browser window to
-            see the content respond to the resizing.</div>
-
-
-            <script>
-                function Noi_tiep_can() {
-                    console.log('nối tiếp cận');
-                }
-    
-            </script>
-
-        <script type="module">
-            import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5  } from "/func.js";
-
-            fetch('/thanh_phan/ChonLoaiCongTrinh.html')
-            .then((response) => {
-                return response.text();
-                })
-                .then((html) => {
-                    TextToHtml("chon_loai_cong_trinh", html);
-                })
-
-        
-
-       
-
-
-
-
-
-
-
-        </script>
-
-
-
-
-    </body>
-
+      fetch("/thanh_phan/ChonLoaiCongTrinh.html")
+        .then((response) => {
+          return response.text();
+        })
+        .then((html) => {
+          TextToHtml("chon_loai_cong_trinh", html);
+        });
+    </script>
+  </body>
 </html>
