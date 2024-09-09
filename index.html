@@ -49,95 +49,25 @@
             see the content respond to the resizing.</div>
 
 
+            <script>
+                function Noi_tiep_can() {
+                    console.log('nối tiếp cận');
+                }
+    
+            </script>
 
         <script type="module">
-            import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5, loadText } from "/func.js";
+            import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5  } from "/func.js";
 
-
-
-
-
-
-            loadText('/thanh_phan/ChonLoaiCongTrinh.html')
-                .then(function (text) {
-                    TextToHtml("chon_loai_cong_trinh", text);
+            fetch('/thanh_phan/ChonLoaiCongTrinh.html')
+            .then((response) => {
+                return response.text();
                 })
-                .then(function () {
-
-                    const e = document.getElementById("lct")
-                    if (e != null) {
-                        e.addEventListener("change", (e) => {
-                            const v = e.target.value;
-
-
-                            loadText(`/lct/${v}.html`)
-                                .then(s => {
-                                    TextToHtml("loai_cong_trinh", s);
-                                })
-                        })
-                    }
-
+                .then((html) => {
+                    TextToHtml("chon_loai_cong_trinh", html);
                 })
 
-
-
-
-
-
-            // loadText('/thanh_phan/ChonLoaiCongTrinh.html')
-            //     .then(text => {
-            //         TextToHtml("chon_loai_cong_trinh", text);
-            //         const e = document.getElementById("lct")
-            //         if (e != null) {
-            //             e.addEventListener("change", (e) => {
-            //                 const v = e.target.value;
-            //                 loadText(`/lct/${v}.html`)
-            //                     .then(s => {
-            //                         TextToHtml("loai_cong_trinh", s);
-            //                     })
-            //             })
-            //         }
-
-
-            //     })
-
-
-
-
-
-
-
-
-
-
-
-
-        </script>
-
-        <script>
-            function Noi_tiep_can() {
-                console.log('nối tiếp cận');
-            }
-
-            const p1 = () => {
-                return new Promise((resolve, reject) => {
-                    console.log("P1");
-                    resolve();
-                });
-            };
-
-            p1().then(p1).then(p1).then(p1).then(p1).then(p1).then(p1).then(p1).then(p1).then(p1)
-
-
-
-
-
-
-
-
-
-
-
+        
 
        
 
@@ -146,7 +76,9 @@
 
 
 
+
         </script>
+
 
 
 

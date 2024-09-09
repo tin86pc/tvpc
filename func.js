@@ -30,7 +30,6 @@ function TextToHtml(id, text) {
         return;
 
 
-
     let g = document.getElementById(id);
 
     // Thêm giao diện
@@ -65,11 +64,4 @@ function pl5(ket_qua) {
 }
 
 
-function loadText(url) {
-    return fetch(url)
-        .then(response => response.text());
-}
-
-
-
-export { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5, loadText }
+export { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5 }
