@@ -64,12 +64,10 @@
       function Noi_tiep_can() {
         location.href = "https://www.google.com/search?q=tuvanpc.com";
       }
-      
     </script>
 
     <script type="module">
-      console.log(window.location.pathname);
-      import { doc, ghi, TextToHtml } from "/func.js";
+      import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5 } from "/func.js";
 
       function Phan_loai() {
         console.log("Phân loại công trình");
@@ -81,10 +79,13 @@
             TextToHtml("chon_loai_cong_trinh", html);
           });
       }
-
+      Phan_loai();
       if (window.location.pathname == "/") {
         Phan_loai();
       }
     </script>
+
+   
+
   </body>
 </html>
