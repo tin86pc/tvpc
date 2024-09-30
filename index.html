@@ -1,90 +1,161 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <title>tvpc</title>
-    <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body style="font-family: Verdana">
-    <div style="background-color: #f95428; padding: 15px">
-      <h1>tvpc</h1>
-      <h3>Tư vấn phòng cháy</h3>
+<head>
+  <title>tvpc</title>
+  <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body style="font-family: Verdana">
+  <div style="background-color: #f95428; padding: 15px">
+    <h1>tvpc</h1>
+    <h3>Tư vấn phòng cháy</h3>
+  </div>
+
+  <div style="overflow: auto">
+    <div class="menu">
+      <div class="menuitem">Trang chủ</div>
+      <div class="menuitem">Báo giá</div>
+      <div class="menuitem">Công cụ</div>
     </div>
 
-    <div style="overflow: auto">
-      <div class="menu">
-        <div class="menuitem">Trang chủ</div>
-        <div class="menuitem">Báo giá</div>
-        <div class="menuitem">Công cụ</div>
-      </div>
-
-      <div class="main" style="padding: 15px">
-        <div id="chon_loai_cong_trinh"></div>
-        <div id="loai_cong_trinh"></div>
-      </div>
-
-      <div class="right">
-        <h4 class="menuitem" onclick="Phan_loai()">
-          - Phân loại phân cấp công trình
-        </h4>
-        <h4 class="menuitem" onclick="Noi_tiep_can()">
-          - Nối tiếp cận cho xe chữa cháy
-        </h4>
-        <h4 class="menuitem">- Đường cho xe chữa cháy</h4>
-        <h4 class="menuitem">- Khoảng cách pccc</h4>
-        <h4 class="menuitem">- Bậc chịu lửa</h4>
-        <h4 class="menuitem">- Bố trí mặt bằng</h4>
-        <h4 class="menuitem">- Lối ra thoát nạn</h4>
-        <h4 class="menuitem">- Ngăn cháy lan</h4>
-      </div>
+    <div class="main" style="padding: 15px">
+      <div id="chon_loai_cong_trinh"></div>
+      <div id="loai_cong_trinh"></div>
     </div>
 
-    <div
-      style="
+    <div class="right">
+      <div class="menuitem">
+        <a href="/">
+          - Phân loại công trình</a>
+      </div>
+
+      <div class="menuitem">
+        <a href="https://www.google.com/search?q=tuvanpc.com">
+          - Nối tiếp cận cho xe chữa cháy</a>
+      </div>
+      <div class="menuitem">
+        <a href="https://www.google.com/search?q=tuvanpc.com">
+          - Đường cho xe chữa cháy</a>
+      </div>
+      <div class="menuitem">
+        <a href="https://www.google.com/search?q=tuvanpc.com">
+          - Khoảng cách pccc</a>
+      </div>
+      <div class="menuitem">
+        <a href="https://www.google.com/search?q=tuvanpc.com">
+          - Bậc chịu lửa</a>
+      </div>
+      <div class="menuitem">
+        <a href="https://www.google.com/search?q=tuvanpc.com">
+          - Bố trí mặt bằng</a>
+      </div>
+      <div class="menuitem">
+        <a href="https://www.google.com/search?q=tuvanpc.com">
+          - Lối ra thoát nạn</a>
+      </div>
+      <div class="menuitem">
+        <a href="https://www.google.com/search?q=tuvanpc.com">
+          - Ngăn cháy lan</a>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="
         background-color: #f1f1f1;
         text-align: center;
         padding: 10px;
         margin-top: 7px;
         font-size: 12px;
-      "
-    >
-      This web page is a part of a demonstration of fluid web design made by
-      w3schools.com. Resize the browser window to see the content respond to the
-      resizing.
-    </div>
+      ">
+    This web page is a part of a demonstration of fluid web design made by
+    w3schools.com. Resize the browser window to see the content respond to the
+    resizing.
+  </div>
 
-    <script>
-      function Phan_loai() {
-        location.href = "/";
+  <script>
+    // import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5 } from "/func.js";
+
+    function ghi(o) {
+      // đọc
+      const S_obj = localStorage.getItem("tvpc");
+      let obj = new Object();
+      if (S_obj != null) {
+        Object.assign(obj, JSON.parse(S_obj));
       }
 
-      function Noi_tiep_can() {
-        location.href = "https://www.google.com/search?q=tuvanpc.com";
+      // ghi
+      Object.assign(obj, o);
+      localStorage.setItem("tvpc", JSON.stringify(obj));
+      // console.log("Ghi localStorage");
+      // console.log(obj);
+    }
+
+    function pl1(ket_qua) {
+      ket_qua.innerHTML +=
+        "<p>- Công trình thuộc diện quản lý về phòng cháy và chữa cháy</p>";
+    }
+
+    function pl2(ket_qua) {
+      ket_qua.innerHTML +=
+        "<p>- Công trình thuộc diện có nguy hiểm về cháy nổ</p>";
+    }
+
+    function pl3(ket_qua) {
+      ket_qua.innerHTML += "<p>- Do cơ quan công an quản lý</p>";
+    }
+
+    function pl4(ket_qua) {
+      ket_qua.innerHTML += "<p>- Do ủy ban nhân dân cấp xã quản lý</p>";
+    }
+
+    function pl5(ket_qua) {
+      ket_qua.innerHTML +=
+        "<p>- Công trình thuộc diện phải thẩm duyệt nghiệm thu</p>";
+    }
+
+    function TextToHtml(id, text) {
+      // console.log(id);
+      // console.log(text);
+      if (text == null || id == null) return;
+
+      let g = document.getElementById(id);
+
+      // Thêm giao diện
+      g.innerHTML = text;
+
+      // Thêm code
+      var scripts = g.getElementsByTagName("script");
+      for (var i = 0; i < scripts.length; i++) {
+        eval(scripts[i].innerText);
       }
-    </script>
+    }
 
-    <script type="module">
-      import { doc, ghi, TextToHtml, pl1, pl2, pl3, pl4, pl5 } from "/func.js";
+    function Phan_loai() {
+      console.log("Phân loại công trình");
+      fetch("/thanh_phan/ChonLoaiCongTrinh.html")
+        .then((response) => {
+          return response.text();
+        })
+        .then((html) => {
+          TextToHtml("chon_loai_cong_trinh", html);
+        });
+    }
 
-      function Phan_loai() {
-        console.log("Phân loại công trình");
-        fetch("/thanh_phan/ChonLoaiCongTrinh.html")
-          .then((response) => {
-            return response.text();
-          })
-          .then((html) => {
-            TextToHtml("chon_loai_cong_trinh", html);
-          });
-      }
+    Phan_loai();
 
+    if (window.location.pathname == "/") {
       Phan_loai();
+    }
 
-      if (window.location.pathname == "/") {
-        Phan_loai();
-      }
-    </script>
-  </body>
+
+  </script>
+
+
+</body>
+
 </html>
